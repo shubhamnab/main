@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registration form</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="css/style2.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" media="all" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-min.js"></script>
+<script type="text/javascript" src="js/jquery.multiselect.js"></script>
+<script type="text/javascript" src="js/jquery.multiselect1.js"></script>
+<script type="text/javascript" src="js/dropdown.js"></script>
+<script type="text/javascript" src="js/dropdown1.js"></script>
+<script type="text/javascript" src="js/register1.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+</head>
+<body>
+<div style="background-color:ghostwhite">
+      <img src="images/buzz-logo.png" width="50%">
+  </div>
+<div  class="form" style="background-image: url(images/new_bg3.jpg);height:100%;width:100%;">
+    		<form id="contactform"> 
+    			
+				 <p class="contact"><label for="name"></label></p> 
+    			<input id="name" name="name" placeholder="First and last name" required="" tabindex="1" type="text"> 
+    			 
+    			<p class="contact"><label for="email"></label></p> 
+    			<input id="email" name="email" placeholder="example@domain.com" required="" type="email"> <br><br>
+                
+  
+            <select class="select-style gender" name="gender" id="position">
+            <option value="select">I am a..</option>
+            <option value="doctor">Doctor</option>
+            <option value="medical student">Medical student</option>
+            <option value="reseracher">Reasearcher</option>
+            <option value="other">ohter</option>
+            </select><br><br><br>
+                
+            <select class="select-style gender" id="foo" name="foo" multiple="multiple" size="10">
+               
+</select><br><br>
+                
+            <select class="select-style gender" id="foo1" name="foo1" multiple="multiple" size="10">
+              
+</select><br><br>
+                
+                 <input type="checkbox" value="accept" name="accept" id="accept" class="required">
+                 <label for="accept">I accept the <a href="#agreement" style="text-decoration:none" data-rel="popup">User Agreemnet</a></label>
+          <div data-role="popup" id="agreement" class="ui-content"><br>
+            <input class="buttom" name="submit" id="submit" tabindex="5" value="Sign me up!" type="submit"> 
+                
+</div> 
+                   
+   </form> 
+
+            
+</div>
+
+</body>
+</html>

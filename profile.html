@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Buzz4Health</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0" /> 
+  <link rel="stylesheet" media="all" href="style3.css" type="text/css">
+  <script type="text/javascript" src="js/json.js"></script>
+  <script type="text/javascript" src="css/global.css"></script>
+  <script src="js/jquery.min.js"></script>
+<style>
+table,th,tr
+{
+border-collapse:collapse;
+border:1px solid black;
+text-allign:centre;
+
+}
+table,th,tr
+{
+border-collapse:collapse;
+text-align:centre;
+valign:center;
+}
+h{
+    height: none;
+    margin: 0 auto;
+    padding: 0;
+    color: #207178;
+    font-family: "Verdana", Verdana, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-indent: 0px;
+    display:inline-block;
+    background-color: #FSE9BE;
+}
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><a href="index.html"><img src="images/logo1.png" width="50%" /></a></div>
+      <div class="options" style="margin-top:-15%">
+      	<ul>
+      		<li>Search</li>
+      		<li>Menu</li>
+      	</ul>
+      </div>
+      <div class="clear"></div>
+	    <div class="search-box">
+	    	<form action="#">
+	    		<input type="text" placeholder="Search Test Papers" />
+	    		<input type="submit" value="Go" />
+	    	</form>
+	    	<div class="clear"></div>
+	    </div>
+	    <nav class="vertical menu">
+	    	<ul>
+	            <li><a href="profile.html">Home</a></li>
+	            <li><a href="index1.html">Test Papers</a></li>
+	            <li><a href="#">My Stats</a></li>
+	            <li><a href="#">My Profile</a></li>
+				<li><a href="#">My Connections</a></li>
+				<li><a href="#">My Profile</a></li>
+        	</ul>
+	    </nav>
+    </header><br>
+	
+	
+
+
+	<div id="photo" style="width:30%;margin-left:5%"></div>
+	<ul style="margin-top:-40%;margin-left:40%">
+	<ul>
+	<div id="name" style="margin-top:30%;text-align:center;margin-left:-55%"></div>
+	</ul>
+	</ul>
+	
+	<table width="100%" height="70%" border="1" style="margin-top:0%;margin-left:0%;background-color:">
+<tr>
+  <th>Followers</th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  <th>Followings</th>		
+ </tr>
+<tr>
+  <th id="followers"></th>
+  <th id="followings"></th>		
+ 
+</tr>
+</table>
+<div id="header">
+<h>Professional Statement:</h>
+<p id="statement"></p>
+<hr>
+<h>Doctor Education</h>
+<p id="doc_education"></p>
+<hr>
+<h>Hospital Affiliations</h>
+<p id="hospital_affiliation"></p>
+<hr>
+<h>Awards & Publications</h>
+<p id="awards"></p>
+<hr>
+<h>Areas of Interest</h>
+<li id="tags"></li>
+<hr>
+<h>Specializations</h>
+<p id="specialization"></p>
+<hr>
+
+
+</div>
+	
+	
+	
+	
+	
+	</div>
+             
+	<div>
+    <footer style="margin-top:50%">
+        <a href="#" target="_blank" style="margin-left:13%">About Us</a><a href="#" target="_blank" style="margin-left:13%">Setting</a><a href="#" target="_blank" style="margin-left:13%">Rate This App</a>
+    
+    	<p style="margin-left:25%">Copyright @ 2013 Whitebutter pvt Ltd</p>
+    </footer>
+  </div>
+ 
+
+<script type="text/javascript">
+   window.addEventListener("load",function() {
+	  // Set a timeout...
+	  setTimeout(function(){
+	    // Hide the address bar!
+	    window.scrollTo(0, 1);
+	  }, 0);
+	});
+   $('.search-box,.menu' ).hide();   
+   $('.options li:first-child').click(function(){	
+   		$(this).toggleClass('active'); 	
+   		$('.search-box').toggle();        			
+   		$('.menu').hide();  		
+   		$('.options li:last-child').removeClass('active'); 
+   });
+   $('.options li:last-child').click(function(){
+   		$(this).toggleClass('active');      			
+   		$('.menu').toggle();  		
+   		$('.search-box').hide(); 
+   		$('.options li:first-child').removeClass('active'); 		
+   });
+   $('.content').click(function(){
+   		$('.search-box,.menu' ).hide();   
+   		$('.options li:last-child, .options li:first-child').removeClass('active');
+   });
+</script>
+
+
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+    //  $("#driver").click(function(event){
+          $.getJSON('http://meerkat.buzz4healthtest.c66.me/api/v1/users/tushargupta.json', function(jd) {
+             $('#name').html('<p>  ' + jd.user.name + '</p>');
+             $('#nam').append('<p>login : ' + jd.user.login+ '</p>');
+             $('#name').append('<p>  ' + jd.user.bio+ '</p>');
+			 $('#specialization').append('<p> Specialization: ' + jd.user.specializations+ '</p>');
+			 $('#followers').append('<p>  ' + jd.user.followers_count+ '</p>');
+			 $('#followings').append('<p> ' + jd.user.following_count+ '</p>');
+			 $('#tags').append('<p> ' + jd.tags+ '</p>');
+			 $('#doc_education').append('<p>  ' + jd.user.doc_education+ '</p>');
+			 $('#hospital_affiliation').append('<p>  ' + jd.user.hospital_affiliations+ '</p>');
+			 $('#awards').append('<p>  ' + jd.user.doc_award_and_publication+ '</p>');
+			 $('#name').append('<p>  ' + jd.user.doc_professional_statement+ '</p>');
+			 
+             $("<img/>").attr("src", jd.user.avatar_url).appendTo("#photo");
+          });
+   //   });
+   });
+   </script>
+</body>
+</html>

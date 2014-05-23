@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Buzz4Health</title>
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<script src="js/jquery-1.9.1.min.js"></script>
+
+<script src="js/mobile.js"></script>
+</script><script type="text/javascript">window.onload = function() { w3Init(); };</script>
+
+
+   
+<!--hover-effect-->
+<script src="js/hover_pack.js"></script>
+<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+	<script type="text/javascript">
+	$(function () {
+		
+		var filterList = {
+		
+			init: function () {
+			
+				// MixItUp plugin
+				// http://mixitup.io
+				$('#portfoliolist').mixitup({
+					targetSelector: '.portfolio',
+					filterSelector: '.filter',
+					effects: ['fade'],
+					easing: 'snap',
+					// call the hover effect
+					onMixEnd: filterList.hoverEffect()
+				});				
+			
+			},
+			
+			hoverEffect: function () {
+			
+				// Simple parallax effect
+				$('#portfoliolist .portfolio').hover(
+					function () {
+						$(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+						$(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');				
+					},
+					function () {
+						$(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+						$(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');								
+					}		
+				);				
+			
+			}
+
+		};
+		
+		// Run the show!
+		filterList.init();
+		
+		
+	});	
+	</script>
+</head>
+<body>
+	<!--start header-->
+  <div class="wrap"> 
+	<div >
+	 <div class="header-top">	
+		 <div id="w3-masthead">
+		    <div id="w3-universal-nav">
+		    	<ul id="header">
+		    		<div class="logo">
+		    		 	<a href="index.html"><img src="images/buzz-logo.png"  width="50%"alt=""/></a>
+		    		</div>
+		    	</ul>
+		    	<div id="w3-mobile-options">
+		    		<li id="w3-menu-trigger">
+		    		<a href="">Menu</a></li>
+		    	</div>
+		    		<ul id="w3-menu-links" style="display: none;">
+			    		 <li><a href="test.html" class="scroll">Home</a></li>
+						 <li><a href="#" class="scroll">Forum</a></li>
+						 <li><a href="#" class="scroll">History</a></li>
+						 <li><a href="#" class="scroll">Notifications</a></li>
+					     <li><a href="#" class="scroll">Setting</a></li>
+						 <li><a href="#" class="scroll">Send Feedback</a></li>
+						 <li><a href="#" class="scroll">Help</a></li>
+					</ul>
+		    </div>
+		  </div>	
+		 </div>
+         <div class="header-bottom" id="home" style="margin-top:-10%">
+		   <h1>"Test : 1"</h1>
+		   <button id="home" style="margin-top:3%" class="comments-area"><a href="test.html">Buy Me</a></button>
+		 </div>
+		 
+		 <div class="comment">
+		  		        	<h2>About Test 1</h2>
+							<p>The context it will cover.How many questions this test will include.</p><br><br>
+							</div>
+							
+							<div class="comment">
+		  		        	<h2>Test Format</h2>
+							<p>The context it will cover.How many questions this test will include.</p><br><br>
+							</div>
+							
+							<div class="comment">
+		  		        	<h2>FAQ???</h2>
+							<p>The context it will cover.How many questions this test will include.</p><br>
+							<p>The context it will cover.How many questions this test will include.</p><br>
+							<p>The context it will cover.How many questions this test will include.</p><br>
+							<p>The context it will cover.How many questions this test will include.</p><br>
+							
+							</div>
+							
+	</div>
+	
+
+      <script type="text/javascript">
+			$(document).ready(function() {
+			
+				var defaults = {
+		  			containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear' 
+		 		};
+				
+				
+				$().UItoTop({ easingType: 'easeOutQuart' });
+				
+			});
+		</script>
+        <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
+ </div>
+</body>
+</html>
